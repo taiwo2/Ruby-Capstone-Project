@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require_relative '../lib/check.rb'
 
 check = CheckForErrors.new('../sample.rb')
