@@ -154,8 +154,7 @@ $ git clone https://github.com/taiwo2/Ruby-Capstone-Project.git
 **To check for errors on a file:** 
 
 ~~~bash
-$ cd bin
-$ ruby main.rb
+$ bin/main.rb
 ~~~
 
 ## Testing
