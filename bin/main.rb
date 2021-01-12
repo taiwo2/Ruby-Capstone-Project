@@ -2,7 +2,7 @@
 
 require_relative '../lib/check.rb'
 
-check = CheckForErrors.new('../sample.rb')
+check = CheckForErrors.new('./sample.rb')
 check.check_indentation
 check.trailing_space
 check.tag_error

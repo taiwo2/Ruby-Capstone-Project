@@ -1,6 +1,6 @@
 require 'colorize'
 require 'strscan'
-require_relative 'filescheckers.rb'
+require_relative 'files_checkers.rb'
 
 class CheckForErrors
   attr_reader :checker, :errors
@@ -13,7 +13,7 @@ class CheckForErrors
   def trailing_space
     checker.file_lines.each_with_index do |ele, idx|
       if ele[-2] == ' ' && !ele.strip.empty?
-        @errors << "line #{idx + 1}:#{ele.size - 1} Trailing Whitespace Detected "
+        errors << "line #{idx + 1}:#{ele.size - 1} Trailing Whitespace Detected "
         + " '#{ele.gsub(/\s*$/, '_')}'"
       end
     end
@@ -94,8 +94,8 @@ class CheckForErrors
 
       status = open_p.flatten.size <=> close_p.flatten.size
 
-      log_error("line:#{index + 1} Lint/Syntax: Unexpected/Missing token '#{args[2]}' #{args[4]}") if status.eql?(1)
-      log_error("line:#{index + 1} Lint/Syntax: Unexpected/Missing token '#{args[3]}' #{args[4]}") if status.eql?(-1)
+      log_error("line:#{index + 1} Lint/Syntax: Unexpected/Missing token '#{args[3]}' #{args[4]}") if status.eql?(1)
+      log_error("line:#{index + 1} Lint/Syntax: Unexpected/Missing token '#{args[2]}' #{args[4]}") if status.eql?(-1)
     end
   end
 

@@ -6,7 +6,7 @@ describe CheckForErrors do
   describe '#trailing_space' do
     it 'should return  trailing space error on line 3 ' do
       checker.trailing_space
-      expect(checker.errors[0]).to eql('line 3:20 Trailing Whitespace Detected ')
+      expect(checker.errors[0]).to eql('line 3:24 Trailing Whitespace Detected ')
     end
   end
 
