@@ -7,13 +7,13 @@ class CheckForErrors
   def initialize(filepath)
     @checker = FileChecker.new(filepath)
     @errors = []
-    @keyword = %w[]
+    @keywords = %w[begin case class def do if module unless]
   end
 
   def trailing_space
     checker.file_lines.each_with_index do |ele, idx|
       if ele[-2] == ' ' && !ele.strip.empty?
-        @errors << "line #{idx + 1} :#{ele.size - 1} : Errors Trailing Whitespace Detected"
+        @errors << "line #{idx + 1}:#{ele.size - 1} Trailing Whitespace Detected "
         + " '#{ele.gsub(/\s*$/, '_')}'"
       end
     end
@@ -70,8 +70,6 @@ class CheckForErrors
       cur_val = indent_val
     end
   end
-
-  private
 
   def indent_error(str_val, indx, exp_val, msg)
     strip_line = str_val.strip.split(' ')

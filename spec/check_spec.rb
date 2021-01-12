@@ -1,7 +1,7 @@
 require_relative '../lib/check.rb'
 
 describe CheckForErrors do
-  let(:checker) { CheckForErrors.new('bug.rb') }
+  let(:checker) { CheckForErrors.new('sample.rb') }
 
   describe '#trailing_space' do
     it 'should return  trailing space error on line 3 ' do
@@ -33,6 +33,13 @@ describe CheckForErrors do
 
   describe '#empty_line_error' do
     it 'returns empty line error' do
+      checker.empty_line_error
+      expect(checker.errors[0]).to eql('line:11 Extra empty line detected at block body end')
+    end
+  end
+
+  describe '#check_end_empty_line' do
+    it 'should return end errors' do
       checker.empty_line_error
       expect(checker.errors[0]).to eql('line:11 Extra empty line detected at block body end')
     end
