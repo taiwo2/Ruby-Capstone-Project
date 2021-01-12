@@ -2,7 +2,7 @@ AllCops:
   Exclude:
     - "Guardfile"
     - "Rakefile"
-    - "bug.rb"
+    - "sample.rb"
 
   DisplayCopNames: true
 

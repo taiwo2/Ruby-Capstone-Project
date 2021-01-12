@@ -59,7 +59,7 @@ class CheckForErrors
       exp_val = cur_val * 2
       res_word = %w[class def if elsif until module unless begin case]
 
-      next unless !str_val.strip.empty? || !strip_line.first.eql?('#')
+      next if str_val.strip.empty? || strip_line.first.eql?('#')
 
       indent_val += 1 if res_word.include?(strip_line.first) || strip_line.include?('do')
       indent_val -= 1 if str_val.strip == 'end'
