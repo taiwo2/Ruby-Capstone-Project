@@ -91,7 +91,6 @@ class CheckForErrors
       close_p = []
       open_p << str_val.scan(args[0])
       close_p << str_val.scan(args[1])
-  
 
       status = open_p.flatten.size <=> close_p.flatten.size
 
