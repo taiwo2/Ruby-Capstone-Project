@@ -7,6 +7,6 @@ class Game
   def logic(arr)
     arr.each do |ele|
       puts ele
-    end
+    end   
   
 end
